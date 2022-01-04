@@ -46,7 +46,7 @@ class BufferManager {
     var mFFTHelper: FFTHelper
     
     var bufferDelegate: BufferDelegate?
-    
+        
     init(maxFramesPerSlice inMaxFramesPerSlice: Int) {
         displayMode = .oscilloscopeWaveform
         drawBuffers = UnsafeMutablePointer.allocate(capacity: Int(kNumDrawBuffers))
@@ -92,7 +92,7 @@ class BufferManager {
         }
         mDrawBufferIndex += inNumFrames*/
         
-        let readFromCSV = true
+        let readFromCSV = false
         
         if readFromCSV {
             //read from CSV as simulated data
@@ -118,6 +118,7 @@ class BufferManager {
                 }
                 drawBuffers[0]?[i + mDrawBufferIndex] = (inData?[i])!
             }
+            bufferLength = inNumFrames
             mDrawBufferIndex += inNumFrames            
         }
         

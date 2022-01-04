@@ -67,33 +67,4 @@ class FFTHelper {
         var one: Float32 = 1
         vDSP_vdbcon(outFFTData, 1, &one, outFFTData, 1, mFFTLength, 0)
     }
-    
-    func getFFT(input: [Float32]) -> ([Float], [Float]) {
-        
-        var real = input
-        var imag = [Float](repeating: 0.0, count: input.count)
-        var splitComplexBuffer = DSPSplitComplex(realp: &real, imagp: &imag)
-        let length = input.count
-        let log2n = log2(Float(length))
-        let fftSetup = vDSP_create_fftsetup(vDSP_Length(log2n), FFTRadix(kFFTRadix2))!
-        
-        let halfLength = (input.count/2) + 1
-        real = [Float](repeating: 0.0, count: halfLength)
-        imag = [Float](repeating: 0.0, count: halfLength)
-
-        // input is alternated across the real and imaginary arrays of the DSPSplitComplex structure
-        splitComplexBuffer = DSPSplitComplex(fromInputArray: input, realParts: &real, imaginaryParts: &imag)
-
-        
-        // even though there are 2 real and 2 imaginary output elements, we still need to ask the fft to process 4 input samples
-        vDSP_fft_zrip(fftSetup, &splitComplexBuffer, 1, vDSP_Length(log2n), FFTDirection(FFT_FORWARD))
-
-        // zrip results are 2x the standard FFT and need to be scaled
-        var scaleFactor = Float(1.0/2.0)
-        vDSP_vsmul(splitComplexBuffer.realp, 1, &scaleFactor, splitComplexBuffer.realp, 1, vDSP_Length(halfLength))
-        vDSP_vsmul(splitComplexBuffer.imagp, 1, &scaleFactor, splitComplexBuffer.imagp, 1, vDSP_Length(halfLength))
-        
-        return (real, imag)
-        
-    }
 }

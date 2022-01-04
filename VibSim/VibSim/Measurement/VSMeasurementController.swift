@@ -7,6 +7,7 @@
 
 import UIKit
 import NChart3D
+import TabularData
 
 let ChartKey = "erUfZqFAB/6KSR9tEK41MKq9eISHR7a/HAdkw4GG3G95/wCaOur1jOACdLLmiJfscEimwSlaPte5 xggUT3hVstd1u1x/dHnWuO1Jyochyd1RI8PKGg5DwFWlDAB9C5AKs/+HCdxllydZUdHOW93sRhRr hbnvYYgzaEaiDDZWWxxWwB2gNZavtfEVzOKiurSRBNmhBuk7SZKu0l3CxNeYM7nYTVh3SJhV9b1P BWifrcQOr7MGPjHXI2jN2vmqcIbqylar0dH5ZMYsgIIlZhGzUPswGwWFY6MdwZ9jp0hHCzyWMlid 9p9g5dXaemDlvwbr+FY2MGgGjPB+9EOECfD9Srf4IX+L6xMY5aUlU3Zkv2xS98PymH8lYhQFLxik smlaElBTNZYDiJNS3tiWIsAjXFlfnSAQUzPRFgQb8BIDEnOckWVr2SCe77S+oCo1BccaKCN2JqEp 36sibNGz+hPtUpkoXd53MD3hlscB3Kkm/VWj/inOwbRGjXi9ngmJVgvkWGkZoZe4eI8Ne0hlOmfY tzBwa22YLWN1E8CEZ/J1Y30YblDbmOIWW6fnCtiUtvY/7bldJNL375KZBrw0P6hUuasGlm0P12er 9cEhbKhRYBHsmZsqZYXv7fwJXxefSobgnLcMsMFEbGALOa2GKGeJZNDPDWVYtrAsWHHNCt/Ls94="
 
@@ -18,34 +19,22 @@ class VSMeasurementController: UIViewController {
     var TWFChartView: NChartView?
     var FFTChartView: NChartView?
     var audioController: VSAudioController?    
-    var dataArray: [Float32]?
-    var dataArray2: [Float32?]?
-    var dataArray3: [Float32?]?
+    var acc_TWF: [Float32]?
+    var acc_fft_rms: [Float32?]?
+    var vel_fft_rms: [Float32?]?
+    var vel_TWF: [Float32?]?
     
-    let max = GLfloat(kDefaultDrawSamples)
-    private var animationStarted: TimeInterval = 0
-    private var animationTimer: Timer?
-    private var animationInterval: TimeInterval = 0
-    var l_fftData: UnsafeMutablePointer<Float32>!
-
-    func CLAMP<T: Comparable>(_ min: T, _ x: T, _ max: T) -> T {return x < min ? min : (x > max ? max : x)}
+    var fftTool: FFTTool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fftTool = FFTTool()
         audioController = VSAudioController()
         audioController?.bufferManagerInstance.bufferDelegate = self
         
-        l_fftData = UnsafeMutablePointer.allocate(capacity: audioController!.bufferManagerInstance.FFTOutputBufferLength)
-        bzero(l_fftData, size_t(audioController!.bufferManagerInstance.FFTOutputBufferLength * MemoryLayout<Float32>.size))
-
         self.loadTWFChartView()
         self.loadFFTChartView()
-        
-        /*
-        animationTimer = Timer.scheduledTimer(timeInterval: animationInterval, target: self, selector: #selector(self.collectDataSignals as () -> ()), userInfo: nil, repeats: true)
-        animationTimer?.fire()
-        animationStarted = Date.timeIntervalSinceReferenceDate*/
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -160,10 +149,7 @@ class VSMeasurementController: UIViewController {
     }
     
     @objc func collectDataSignals_() {
-        
-//        if self.applicationResignedActive { return }
-        
-//        self.collectSignals(self, forTime: Date.timeIntervalSinceReferenceDate - animationStarted)
+    
     }
     
     private func collectDataSignals(buffer: UnsafeMutablePointer<UnsafeMutablePointer<Float32>?>) {
@@ -171,58 +157,71 @@ class VSMeasurementController: UIViewController {
             
             let bufferManager = audioController!.bufferManagerInstance
             let drawBuffers = buffer
-            var drawBuffer_ptr: UnsafeMutablePointer<Float32>
-            dataArray = [] //acc_TWF
-            dataArray2 = [] //vel_fft_rms
-            dataArray3 = [] //acc_fft_rms
+            var drawBuffer_ptr = drawBuffers[0]
+            acc_TWF = [] //acc_TWF
+            acc_fft_rms = [] //vel_fft_rms
+            vel_fft_rms = [] //acc_fft_rms
             
             for drawBuffer_i in 0..<bufferManager.bufferLength {
 //                if drawBuffers[drawBuffer_i] == nil { continue }
                 
                 let val = drawBuffers[0]![drawBuffer_i]
-                dataArray!.append(val)
+                acc_TWF!.append(val)
             }
             
-            let SR = 44100 as UInt32 //5120 * 2 as UInt32
-            let coeff = 386.08858
-            audioController?.bufferManagerInstance.GetFFTOutput(l_fftData)
-            let maxY = audioController?.bufferManagerInstance.currentDrawBufferLength
-            let fftLength = audioController?.bufferManagerInstance.FFTOutputBufferLength
+            let loadFromCSV = false
             
-            let acc_fft = audioController?.bufferManagerInstance.mFFTHelper.getFFT(input: dataArray!)
-            
-            let pointerToFloats = UnsafeMutablePointer<Float>.allocate(capacity: dataArray!.count)
-            pointerToFloats.assign(from: dataArray!, count: dataArray!.count)
-
-            /*
-            let acc_fft2 = VSFFT.fft(pointerToFloats, logFFTsize: 2)
-            var real_ptr: UnsafeMutablePointer<Double>
-            real_ptr = acc_fft2.realp
-            for drawBuffer_i in 0..<4096 {
-
-                let val = real_ptr.pointee
-                dataArray2!.append(Float(val))
-                real_ptr += 1
-            }*/
-            
-            let BS = 4096 as UInt32
-            let mtick = SR/BS
-            let HP_lines = Int(2/mtick)
-
-            
-            for i in 0..<acc_fft!.1.count {
+            if loadFromCSV {
                 
-                if i>HP_lines {
-                    
-                    let realVal = (Float(coeff) * (acc_fft?.0[i])!)/Float((Int(2.0 * Double.pi) * i * Int(mtick)))
-                    let imagVal = (Float(-1*coeff) * (acc_fft?.1[i])!)/Float((Int(2.0 * Double.pi) * i * Int(mtick)))
-                    dataArray2!.append(realVal)
-                    dataArray3!.append(imagVal)
-                }
-            }      
+                acc_fft_rms = self.loadTest_Acc_FFT_Rms()
+                vel_fft_rms = self.loadTest_Vel_FFT_Rms()
+                
+            } else {
+                
+                let SR = 44100 as Int
+                let coeff = 386.08858 as Float
+                let BS = audioController?.bufferManagerInstance.bufferLength
+
+                let spectra = fftTool?.acc_to_vel(acc_data: drawBuffer_ptr!, SR: SR, coeff: coeff, HPf: 2, BS: BS!)
+                acc_fft_rms = spectra!.0
+                vel_fft_rms = spectra!.1           
+            }
+            
             TWFChartView?.chart.updateData()
             FFTChartView?.chart.updateData()
         }
+    }
+    
+    private func loadTest_Vel_FFT_Rms() -> [Float] {
+        
+        var floats:[Float] = []
+        
+        let url = Bundle.main.url(forResource: "vel_fft_rms", withExtension: "csv")!
+        if #available(iOS 15, *) {
+            let result = try? DataFrame(contentsOfCSVFile: url) as DataFrame
+            let bufferLength = (result?.rows.count)!
+            for i in 0..<bufferLength {
+                
+                floats.append(Float((result?.rows[i][0])! as! Double))
+            }
+        }
+        return floats
+    }
+    
+    private func loadTest_Acc_FFT_Rms() -> [Float] {
+        
+        var floats:[Float] = []
+        
+        let url = Bundle.main.url(forResource: "acc_fft_rms", withExtension: "csv")!
+        if #available(iOS 15, *) {
+            let result = try? DataFrame(contentsOfCSVFile: url) as DataFrame
+            let bufferLength = (result?.rows.count)!
+            for i in 0..<bufferLength {
+                
+                floats.append(Float((result?.rows[i][0])! as! Double))
+            }
+        }
+        return floats
     }
 }
 
@@ -234,14 +233,14 @@ extension VSMeasurementController: NChartSeriesDataSource {
         
         if series.tag == 100 {
             
-            for i in 0..<dataArray!.count {
-                result.append(NChartPoint(state: NChartPointState(alignedToXWithX: i, y: Double(dataArray![i])),
+            for i in 0..<acc_TWF!.count {
+                result.append(NChartPoint(state: NChartPointState(alignedToXWithX: i, y: Double(acc_TWF![i])),
                     for: series))
             }
         } else if series.tag == 200 {
             
-            for i in 0..<dataArray2!.count {
-                result.append(NChartPoint(state: NChartPointState(alignedToXWithX: i, y: Double(dataArray2![i]!)),
+            for i in 0..<acc_fft_rms!.count {
+                result.append(NChartPoint(state: NChartPointState(alignedToXWithX: i, y: Double(acc_fft_rms![i]!)),
                     for: series))
             }
         }

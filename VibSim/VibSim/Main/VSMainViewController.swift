@@ -16,7 +16,7 @@ class VSMainViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Vib Sim"
         measurementBtn?.titleLabel?.font = .boldSystemFont(ofSize: CGFloat(23))
-        
+        measurementBtn?.center = self.view.center
     }
     
     override func viewDidAppear(_ animated: Bool) {

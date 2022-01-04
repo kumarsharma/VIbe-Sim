@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE4C9E8D27832B4E003F7450 /* acc_TWF.csv in Resources */ = {isa = PBXBuildFile; fileRef = CE4C9E8A27832B4D003F7450 /* acc_TWF.csv */; };
-		CE4C9E8E27832B4E003F7450 /* acc_fft_rms.csv in Resources */ = {isa = PBXBuildFile; fileRef = CE4C9E8B27832B4D003F7450 /* acc_fft_rms.csv */; };
-		CE4C9E8F27832B4E003F7450 /* vel_fft_rms.csv in Resources */ = {isa = PBXBuildFile; fileRef = CE4C9E8C27832B4D003F7450 /* vel_fft_rms.csv */; };
 		CEB874672780C1C00050FDC1 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB874662780C1C00050FDC1 /* ImageIO.framework */; };
 		CEB874692780C1CB0050FDC1 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB874682780C1CB0050FDC1 /* libc++.tbd */; };
 		CEB8746B2780C2E00050FDC1 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8746A2780C2E00050FDC1 /* MetalKit.framework */; };
 		CEBA482027840CF800F72366 /* VSFFT.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA481E27840CF800F72366 /* VSFFT.m */; };
 		CEBA482227841B0000F72366 /* FFTTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA482127841B0000F72366 /* FFTTool.swift */; };
 		CEBA48242784361600F72366 /* NChart3D.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA48232784361600F72366 /* NChart3D.xcframework */; };
+		CEBA483027848E5300F72366 /* acc_TWF.csv in Resources */ = {isa = PBXBuildFile; fileRef = CEBA482D27848E5300F72366 /* acc_TWF.csv */; };
+		CEBA483127848E5300F72366 /* vel_fft_rms.csv in Resources */ = {isa = PBXBuildFile; fileRef = CEBA482E27848E5300F72366 /* vel_fft_rms.csv */; };
+		CEBA483227848E5300F72366 /* acc_fft_rms.csv in Resources */ = {isa = PBXBuildFile; fileRef = CEBA482F27848E5300F72366 /* acc_fft_rms.csv */; };
+		CEBA48342784B23100F72366 /* SignalProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA48332784B23100F72366 /* SignalProcessing.swift */; };
+		CEBA48362784CC1C00F72366 /* Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA48352784CC1C00F72366 /* Complex.swift */; };
+		CEBA48392784CC3D00F72366 /* FloatingPointMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA48372784CC3D00F72366 /* FloatingPointMath.swift */; };
+		CEBA483A2784CC3D00F72366 /* GaussianInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA48382784CC3D00F72366 /* GaussianInt.swift */; };
 		CED6AE6C2775F78300AAFBE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6AE6B2775F78300AAFBE6 /* AppDelegate.swift */; };
 		CED6AE6E2775F78300AAFBE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6AE6D2775F78300AAFBE6 /* SceneDelegate.swift */; };
 		CED6AE702775F78300AAFBE6 /* VSMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6AE6F2775F78300AAFBE6 /* VSMainViewController.swift */; };
@@ -71,9 +75,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CE4C9E8A27832B4D003F7450 /* acc_TWF.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = acc_TWF.csv; sourceTree = "<group>"; };
-		CE4C9E8B27832B4D003F7450 /* acc_fft_rms.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = acc_fft_rms.csv; sourceTree = "<group>"; };
-		CE4C9E8C27832B4D003F7450 /* vel_fft_rms.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vel_fft_rms.csv; sourceTree = "<group>"; };
 		CEB874662780C1C00050FDC1 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		CEB874682780C1CB0050FDC1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		CEB8746A2780C2E00050FDC1 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
@@ -81,6 +82,13 @@
 		CEBA481F27840CF800F72366 /* VSFFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSFFT.h; sourceTree = "<group>"; };
 		CEBA482127841B0000F72366 /* FFTTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFTTool.swift; sourceTree = "<group>"; };
 		CEBA48232784361600F72366 /* NChart3D.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NChart3D.xcframework; path = ../../NChart3D.xcframework; sourceTree = "<group>"; };
+		CEBA482D27848E5300F72366 /* acc_TWF.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = acc_TWF.csv; sourceTree = "<group>"; };
+		CEBA482E27848E5300F72366 /* vel_fft_rms.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vel_fft_rms.csv; sourceTree = "<group>"; };
+		CEBA482F27848E5300F72366 /* acc_fft_rms.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = acc_fft_rms.csv; sourceTree = "<group>"; };
+		CEBA48332784B23100F72366 /* SignalProcessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalProcessing.swift; sourceTree = "<group>"; };
+		CEBA48352784CC1C00F72366 /* Complex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Complex.swift; sourceTree = "<group>"; };
+		CEBA48372784CC3D00F72366 /* FloatingPointMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPointMath.swift; sourceTree = "<group>"; };
+		CEBA48382784CC3D00F72366 /* GaussianInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GaussianInt.swift; sourceTree = "<group>"; };
 		CED6AE682775F78300AAFBE6 /* VibSim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VibSim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED6AE6B2775F78300AAFBE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CED6AE6D2775F78300AAFBE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -266,6 +274,7 @@
 				CED6AEB22776058B00AAFBE6 /* FFTHelper.swift */,
 				CED6AEC1277606B900AAFBE6 /* DCRejectionFilter.swift */,
 				CEBA482127841B0000F72366 /* FFTTool.swift */,
+				CEBA48332784B23100F72366 /* SignalProcessing.swift */,
 			);
 			path = AudioClasses;
 			sourceTree = "<group>";
@@ -279,6 +288,9 @@
 				CED6AEB62776068000AAFBE6 /* CAXException.swift */,
 				CED6AEBE2776068600AAFBE6 /* NumTypes+Conversion.swift */,
 				CED6AEBD2776068600AAFBE6 /* OOPExceptions.swift */,
+				CEBA48352784CC1C00F72366 /* Complex.swift */,
+				CEBA48372784CC3D00F72366 /* FloatingPointMath.swift */,
+				CEBA48382784CC3D00F72366 /* GaussianInt.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -303,9 +315,9 @@
 		CED6AEC927762A8900AAFBE6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CE4C9E8A27832B4D003F7450 /* acc_TWF.csv */,
-				CE4C9E8C27832B4D003F7450 /* vel_fft_rms.csv */,
-				CE4C9E8B27832B4D003F7450 /* acc_fft_rms.csv */,
+				CEBA482D27848E5300F72366 /* acc_TWF.csv */,
+				CEBA482F27848E5300F72366 /* acc_fft_rms.csv */,
+				CEBA482E27848E5300F72366 /* vel_fft_rms.csv */,
 				CED6AECB27762AC200AAFBE6 /* Images */,
 				CED6AECA27762ABA00AAFBE6 /* Audio */,
 			);
@@ -446,15 +458,15 @@
 				CED6AEDF277634C500AAFBE6 /* oscilloscope.png in Resources */,
 				CED6AED727762ACE00AAFBE6 /* oscilloscope2.png in Resources */,
 				CED6AED227762ACE00AAFBE6 /* sonogram.png in Resources */,
-				CE4C9E8E27832B4E003F7450 /* acc_fft_rms.csv in Resources */,
 				CED6AE782775F78400AAFBE6 /* Assets.xcassets in Resources */,
 				CED6AED527762ACE00AAFBE6 /* mute_off.png in Resources */,
 				CED6AED427762ACE00AAFBE6 /* fft_on.png in Resources */,
-				CE4C9E8D27832B4E003F7450 /* acc_TWF.csv in Resources */,
+				CEBA483027848E5300F72366 /* acc_TWF.csv in Resources */,
+				CEBA483127848E5300F72366 /* vel_fft_rms.csv in Resources */,
 				CED6AED327762ACE00AAFBE6 /* mute_on.png in Resources */,
 				CED6AED927762B3300AAFBE6 /* button_press.caf in Resources */,
+				CEBA483227848E5300F72366 /* acc_fft_rms.csv in Resources */,
 				CED6AE732775F78300AAFBE6 /* Main.storyboard in Resources */,
-				CE4C9E8F27832B4E003F7450 /* vel_fft_rms.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +492,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED6AEC2277606B900AAFBE6 /* DCRejectionFilter.swift in Sources */,
+				CEBA48362784CC1C00F72366 /* Complex.swift in Sources */,
 				CED6AE702775F78300AAFBE6 /* VSMainViewController.swift in Sources */,
 				CED6AEBA2776068000AAFBE6 /* CAXException.swift in Sources */,
 				CED6AEBC2776068000AAFBE6 /* CAStreamBasicDescription.swift in Sources */,
@@ -487,7 +500,10 @@
 				CED6AEB12776049100AAFBE6 /* BufferManager.swift in Sources */,
 				CED6AE762775F78300AAFBE6 /* VibSim.xcdatamodeld in Sources */,
 				CED6AE6C2775F78300AAFBE6 /* AppDelegate.swift in Sources */,
+				CEBA48342784B23100F72366 /* SignalProcessing.swift in Sources */,
+				CEBA48392784CC3D00F72366 /* FloatingPointMath.swift in Sources */,
 				CED6AEC02776068700AAFBE6 /* NumTypes+Conversion.swift in Sources */,
+				CEBA483A2784CC3D00F72366 /* GaussianInt.swift in Sources */,
 				CED6AEBF2776068700AAFBE6 /* OOPExceptions.swift in Sources */,
 				CED6AEAF2775FA8E00AAFBE6 /* VSAudioController.swift in Sources */,
 				CED6AEC8277608C300AAFBE6 /* VSMeasurementController.swift in Sources */,
