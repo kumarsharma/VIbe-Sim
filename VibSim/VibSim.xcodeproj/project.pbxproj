@@ -1,0 +1,884 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE4C9E8D27832B4E003F7450 /* acc_TWF.csv in Resources */ = {isa = PBXBuildFile; fileRef = CE4C9E8A27832B4D003F7450 /* acc_TWF.csv */; };
+		CE4C9E8E27832B4E003F7450 /* acc_fft_rms.csv in Resources */ = {isa = PBXBuildFile; fileRef = CE4C9E8B27832B4D003F7450 /* acc_fft_rms.csv */; };
+		CE4C9E8F27832B4E003F7450 /* vel_fft_rms.csv in Resources */ = {isa = PBXBuildFile; fileRef = CE4C9E8C27832B4D003F7450 /* vel_fft_rms.csv */; };
+		CEB874672780C1C00050FDC1 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB874662780C1C00050FDC1 /* ImageIO.framework */; };
+		CEB874692780C1CB0050FDC1 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB874682780C1CB0050FDC1 /* libc++.tbd */; };
+		CEB8746B2780C2E00050FDC1 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8746A2780C2E00050FDC1 /* MetalKit.framework */; };
+		CEBA482027840CF800F72366 /* VSFFT.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBA481E27840CF800F72366 /* VSFFT.m */; };
+		CEBA482227841B0000F72366 /* FFTTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA482127841B0000F72366 /* FFTTool.swift */; };
+		CEBA48242784361600F72366 /* NChart3D.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBA48232784361600F72366 /* NChart3D.xcframework */; };
+		CED6AE6C2775F78300AAFBE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6AE6B2775F78300AAFBE6 /* AppDelegate.swift */; };
+		CED6AE6E2775F78300AAFBE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6AE6D2775F78300AAFBE6 /* SceneDelegate.swift */; };
+		CED6AE702775F78300AAFBE6 /* VSMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6AE6F2775F78300AAFBE6 /* VSMainViewController.swift */; };
+		CED6AE732775F78300AAFBE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CED6AE712775F78300AAFBE6 /* Main.storyboard */; };
+		CED6AE762775F78300AAFBE6 /* VibSim.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CED6AE742775F78300AAFBE6 /* VibSim.xcdatamodeld */; };
+		CED6AE782775F78400AAFBE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED6AE772775F78400AAFBE6 /* Assets.xcassets */; };
+		CED6AE7B2775F78400AAFBE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CED6AE792775F78400AAFBE6 /* LaunchScreen.storyboard */; };
+		CED6AE862775F78500AAFBE6 /* VibSimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6AE852775F78500AAFBE6 /* VibSimTests.swift */; };
+		CED6AE902775F78500AAFBE6 /* VibSimUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6AE8F2775F78500AAFBE6 /* VibSimUITests.swift */; };
+		CED6AE922775F78500AAFBE6 /* VibSimUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6AE912775F78500AAFBE6 /* VibSimUITestsLaunchTests.swift */; };
+		CED6AEA02775F82F00AAFBE6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED6AE9F2775F82E00AAFBE6 /* AVFoundation.framework */; };
+		CED6AEA22775F83600AAFBE6 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED6AEA12775F83600AAFBE6 /* Accelerate.framework */; };
+		CED6AEA42775F83D00AAFBE6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED6AEA32775F83D00AAFBE6 /* QuartzCore.framework */; };
+		CED6AEA82775F84C00AAFBE6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED6AEA72775F84C00AAFBE6 /* AudioToolbox.framework */; };
+		CED6AEAA2775F85400AAFBE6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED6AEA92775F85400AAFBE6 /* CoreGraphics.framework */; };
+		CED6AEAF2775FA8E00AAFBE6 /* VSAudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6AEAE2775FA8E00AAFBE6 /* VSAudioController.swift */; };
+		CED6AEB12776049100AAFBE6 /* BufferManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6AEB02776049100AAFBE6 /* BufferManager.swift */; };
+		CED6AEB32776058B00AAFBE6 /* FFTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6AEB22776058B00AAFBE6 /* FFTHelper.swift */; };
+		CED6AEB92776068000AAFBE6 /* CADebugMacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6AEB52776068000AAFBE6 /* CADebugMacros.swift */; };
+		CED6AEBA2776068000AAFBE6 /* CAXException.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6AEB62776068000AAFBE6 /* CAXException.swift */; };
+		CED6AEBB2776068000AAFBE6 /* CABitOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6AEB72776068000AAFBE6 /* CABitOperations.swift */; };
+		CED6AEBC2776068000AAFBE6 /* CAStreamBasicDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6AEB82776068000AAFBE6 /* CAStreamBasicDescription.swift */; };
+		CED6AEBF2776068700AAFBE6 /* OOPExceptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6AEBD2776068600AAFBE6 /* OOPExceptions.swift */; };
+		CED6AEC02776068700AAFBE6 /* NumTypes+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6AEBE2776068600AAFBE6 /* NumTypes+Conversion.swift */; };
+		CED6AEC2277606B900AAFBE6 /* DCRejectionFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6AEC1277606B900AAFBE6 /* DCRejectionFilter.swift */; };
+		CED6AEC8277608C300AAFBE6 /* VSMeasurementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6AEC7277608C300AAFBE6 /* VSMeasurementController.swift */; };
+		CED6AED227762ACE00AAFBE6 /* sonogram.png in Resources */ = {isa = PBXBuildFile; fileRef = CED6AECC27762ACE00AAFBE6 /* sonogram.png */; };
+		CED6AED327762ACE00AAFBE6 /* mute_on.png in Resources */ = {isa = PBXBuildFile; fileRef = CED6AECD27762ACE00AAFBE6 /* mute_on.png */; };
+		CED6AED427762ACE00AAFBE6 /* fft_on.png in Resources */ = {isa = PBXBuildFile; fileRef = CED6AECE27762ACE00AAFBE6 /* fft_on.png */; };
+		CED6AED527762ACE00AAFBE6 /* mute_off.png in Resources */ = {isa = PBXBuildFile; fileRef = CED6AECF27762ACE00AAFBE6 /* mute_off.png */; };
+		CED6AED627762ACE00AAFBE6 /* fft_off.png in Resources */ = {isa = PBXBuildFile; fileRef = CED6AED027762ACE00AAFBE6 /* fft_off.png */; };
+		CED6AED727762ACE00AAFBE6 /* oscilloscope2.png in Resources */ = {isa = PBXBuildFile; fileRef = CED6AED127762ACE00AAFBE6 /* oscilloscope2.png */; };
+		CED6AED927762B3300AAFBE6 /* button_press.caf in Resources */ = {isa = PBXBuildFile; fileRef = CED6AED827762AD500AAFBE6 /* button_press.caf */; };
+		CED6AEDE277634C500AAFBE6 /* oscilloscope3.png in Resources */ = {isa = PBXBuildFile; fileRef = CED6AEDC277634C500AAFBE6 /* oscilloscope3.png */; };
+		CED6AEDF277634C500AAFBE6 /* oscilloscope.png in Resources */ = {isa = PBXBuildFile; fileRef = CED6AEDD277634C500AAFBE6 /* oscilloscope.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CED6AE822775F78500AAFBE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CED6AE602775F78300AAFBE6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CED6AE672775F78300AAFBE6;
+			remoteInfo = VibSim;
+		};
+		CED6AE8C2775F78500AAFBE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CED6AE602775F78300AAFBE6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CED6AE672775F78300AAFBE6;
+			remoteInfo = VibSim;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CE4C9E8A27832B4D003F7450 /* acc_TWF.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = acc_TWF.csv; sourceTree = "<group>"; };
+		CE4C9E8B27832B4D003F7450 /* acc_fft_rms.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = acc_fft_rms.csv; sourceTree = "<group>"; };
+		CE4C9E8C27832B4D003F7450 /* vel_fft_rms.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vel_fft_rms.csv; sourceTree = "<group>"; };
+		CEB874662780C1C00050FDC1 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		CEB874682780C1CB0050FDC1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		CEB8746A2780C2E00050FDC1 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		CEBA481E27840CF800F72366 /* VSFFT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VSFFT.m; sourceTree = "<group>"; };
+		CEBA481F27840CF800F72366 /* VSFFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSFFT.h; sourceTree = "<group>"; };
+		CEBA482127841B0000F72366 /* FFTTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFTTool.swift; sourceTree = "<group>"; };
+		CEBA48232784361600F72366 /* NChart3D.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NChart3D.xcframework; path = ../../NChart3D.xcframework; sourceTree = "<group>"; };
+		CED6AE682775F78300AAFBE6 /* VibSim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VibSim.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED6AE6B2775F78300AAFBE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CED6AE6D2775F78300AAFBE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CED6AE6F2775F78300AAFBE6 /* VSMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSMainViewController.swift; sourceTree = "<group>"; };
+		CED6AE722775F78300AAFBE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CED6AE752775F78300AAFBE6 /* VibSim.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VibSim.xcdatamodel; sourceTree = "<group>"; };
+		CED6AE772775F78400AAFBE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CED6AE7A2775F78400AAFBE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CED6AE7C2775F78400AAFBE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CED6AE812775F78500AAFBE6 /* VibSimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VibSimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED6AE852775F78500AAFBE6 /* VibSimTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibSimTests.swift; sourceTree = "<group>"; };
+		CED6AE8B2775F78500AAFBE6 /* VibSimUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VibSimUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED6AE8F2775F78500AAFBE6 /* VibSimUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibSimUITests.swift; sourceTree = "<group>"; };
+		CED6AE912775F78500AAFBE6 /* VibSimUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibSimUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CED6AE9F2775F82E00AAFBE6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CED6AEA12775F83600AAFBE6 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		CED6AEA32775F83D00AAFBE6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CED6AEA52775F84400AAFBE6 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		CED6AEA72775F84C00AAFBE6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		CED6AEA92775F85400AAFBE6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CED6AEAE2775FA8E00AAFBE6 /* VSAudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSAudioController.swift; sourceTree = "<group>"; };
+		CED6AEB02776049100AAFBE6 /* BufferManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BufferManager.swift; sourceTree = "<group>"; };
+		CED6AEB22776058B00AAFBE6 /* FFTHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFTHelper.swift; sourceTree = "<group>"; };
+		CED6AEB52776068000AAFBE6 /* CADebugMacros.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CADebugMacros.swift; sourceTree = "<group>"; };
+		CED6AEB62776068000AAFBE6 /* CAXException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAXException.swift; sourceTree = "<group>"; };
+		CED6AEB72776068000AAFBE6 /* CABitOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CABitOperations.swift; sourceTree = "<group>"; };
+		CED6AEB82776068000AAFBE6 /* CAStreamBasicDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAStreamBasicDescription.swift; sourceTree = "<group>"; };
+		CED6AEBD2776068600AAFBE6 /* OOPExceptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOPExceptions.swift; sourceTree = "<group>"; };
+		CED6AEBE2776068600AAFBE6 /* NumTypes+Conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NumTypes+Conversion.swift"; sourceTree = "<group>"; };
+		CED6AEC1277606B900AAFBE6 /* DCRejectionFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCRejectionFilter.swift; sourceTree = "<group>"; };
+		CED6AEC7277608C300AAFBE6 /* VSMeasurementController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSMeasurementController.swift; sourceTree = "<group>"; };
+		CED6AECC27762ACE00AAFBE6 /* sonogram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sonogram.png; sourceTree = "<group>"; };
+		CED6AECD27762ACE00AAFBE6 /* mute_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mute_on.png; sourceTree = "<group>"; };
+		CED6AECE27762ACE00AAFBE6 /* fft_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fft_on.png; sourceTree = "<group>"; };
+		CED6AECF27762ACE00AAFBE6 /* mute_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mute_off.png; sourceTree = "<group>"; };
+		CED6AED027762ACE00AAFBE6 /* fft_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fft_off.png; sourceTree = "<group>"; };
+		CED6AED127762ACE00AAFBE6 /* oscilloscope2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oscilloscope2.png; sourceTree = "<group>"; };
+		CED6AED827762AD500AAFBE6 /* button_press.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = button_press.caf; sourceTree = "<group>"; };
+		CED6AEDC277634C500AAFBE6 /* oscilloscope3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oscilloscope3.png; sourceTree = "<group>"; };
+		CED6AEDD277634C500AAFBE6 /* oscilloscope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oscilloscope.png; sourceTree = "<group>"; };
+		CED6AEE02776374000AAFBE6 /* VibSim-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VibSim-Bridging-Header.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CED6AE652775F78300AAFBE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEBA48242784361600F72366 /* NChart3D.xcframework in Frameworks */,
+				CEB8746B2780C2E00050FDC1 /* MetalKit.framework in Frameworks */,
+				CEB874692780C1CB0050FDC1 /* libc++.tbd in Frameworks */,
+				CEB874672780C1C00050FDC1 /* ImageIO.framework in Frameworks */,
+				CED6AEAA2775F85400AAFBE6 /* CoreGraphics.framework in Frameworks */,
+				CED6AEA82775F84C00AAFBE6 /* AudioToolbox.framework in Frameworks */,
+				CED6AEA42775F83D00AAFBE6 /* QuartzCore.framework in Frameworks */,
+				CED6AEA22775F83600AAFBE6 /* Accelerate.framework in Frameworks */,
+				CED6AEA02775F82F00AAFBE6 /* AVFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CED6AE7E2775F78500AAFBE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CED6AE882775F78500AAFBE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CEBA481D27840CD700F72366 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA481F27840CF800F72366 /* VSFFT.h */,
+				CEBA481E27840CF800F72366 /* VSFFT.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		CED6AE5F2775F78300AAFBE6 = {
+			isa = PBXGroup;
+			children = (
+				CED6AE6A2775F78300AAFBE6 /* VibSim */,
+				CEBA481D27840CD700F72366 /* Tools */,
+				CED6AE842775F78500AAFBE6 /* VibSimTests */,
+				CED6AE8E2775F78500AAFBE6 /* VibSimUITests */,
+				CED6AE692775F78300AAFBE6 /* Products */,
+				CED6AE9E2775F82E00AAFBE6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CED6AE692775F78300AAFBE6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CED6AE682775F78300AAFBE6 /* VibSim.app */,
+				CED6AE812775F78500AAFBE6 /* VibSimTests.xctest */,
+				CED6AE8B2775F78500AAFBE6 /* VibSimUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CED6AE6A2775F78300AAFBE6 /* VibSim */ = {
+			isa = PBXGroup;
+			children = (
+				CED6AE6B2775F78300AAFBE6 /* AppDelegate.swift */,
+				CED6AE6D2775F78300AAFBE6 /* SceneDelegate.swift */,
+				CED6AE712775F78300AAFBE6 /* Main.storyboard */,
+				CED6AE792775F78400AAFBE6 /* LaunchScreen.storyboard */,
+				CED6AE7C2775F78400AAFBE6 /* Info.plist */,
+				CED6AE772775F78400AAFBE6 /* Assets.xcassets */,
+				CED6AEAB2775F97F00AAFBE6 /* Main */,
+				CED6AEC3277607A500AAFBE6 /* Measurement */,
+				CED6AEAD2775FA2F00AAFBE6 /* AudioClasses */,
+				CED6AEAC2775F9F600AAFBE6 /* Model */,
+				CED6AEB42776065500AAFBE6 /* Utilities */,
+				CED6AEC927762A8900AAFBE6 /* Resources */,
+			);
+			path = VibSim;
+			sourceTree = "<group>";
+		};
+		CED6AE842775F78500AAFBE6 /* VibSimTests */ = {
+			isa = PBXGroup;
+			children = (
+				CED6AE852775F78500AAFBE6 /* VibSimTests.swift */,
+			);
+			path = VibSimTests;
+			sourceTree = "<group>";
+		};
+		CED6AE8E2775F78500AAFBE6 /* VibSimUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CED6AE8F2775F78500AAFBE6 /* VibSimUITests.swift */,
+				CED6AE912775F78500AAFBE6 /* VibSimUITestsLaunchTests.swift */,
+			);
+			path = VibSimUITests;
+			sourceTree = "<group>";
+		};
+		CED6AE9E2775F82E00AAFBE6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA48232784361600F72366 /* NChart3D.xcframework */,
+				CEB8746A2780C2E00050FDC1 /* MetalKit.framework */,
+				CEB874682780C1CB0050FDC1 /* libc++.tbd */,
+				CEB874662780C1C00050FDC1 /* ImageIO.framework */,
+				CED6AEA92775F85400AAFBE6 /* CoreGraphics.framework */,
+				CED6AEA72775F84C00AAFBE6 /* AudioToolbox.framework */,
+				CED6AEA52775F84400AAFBE6 /* OpenGLES.framework */,
+				CED6AEA32775F83D00AAFBE6 /* QuartzCore.framework */,
+				CED6AEA12775F83600AAFBE6 /* Accelerate.framework */,
+				CED6AE9F2775F82E00AAFBE6 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CED6AEAB2775F97F00AAFBE6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CED6AE6F2775F78300AAFBE6 /* VSMainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		CED6AEAC2775F9F600AAFBE6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CED6AE742775F78300AAFBE6 /* VibSim.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CED6AEAD2775FA2F00AAFBE6 /* AudioClasses */ = {
+			isa = PBXGroup;
+			children = (
+				CED6AEAE2775FA8E00AAFBE6 /* VSAudioController.swift */,
+				CED6AEB02776049100AAFBE6 /* BufferManager.swift */,
+				CED6AEB22776058B00AAFBE6 /* FFTHelper.swift */,
+				CED6AEC1277606B900AAFBE6 /* DCRejectionFilter.swift */,
+				CEBA482127841B0000F72366 /* FFTTool.swift */,
+			);
+			path = AudioClasses;
+			sourceTree = "<group>";
+		};
+		CED6AEB42776065500AAFBE6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CED6AEB72776068000AAFBE6 /* CABitOperations.swift */,
+				CED6AEB52776068000AAFBE6 /* CADebugMacros.swift */,
+				CED6AEB82776068000AAFBE6 /* CAStreamBasicDescription.swift */,
+				CED6AEB62776068000AAFBE6 /* CAXException.swift */,
+				CED6AEBE2776068600AAFBE6 /* NumTypes+Conversion.swift */,
+				CED6AEBD2776068600AAFBE6 /* OOPExceptions.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		CED6AEC3277607A500AAFBE6 /* Measurement */ = {
+			isa = PBXGroup;
+			children = (
+				CED6AEC4277607B700AAFBE6 /* Views */,
+				CED6AEC7277608C300AAFBE6 /* VSMeasurementController.swift */,
+			);
+			path = Measurement;
+			sourceTree = "<group>";
+		};
+		CED6AEC4277607B700AAFBE6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CED6AEE02776374000AAFBE6 /* VibSim-Bridging-Header.h */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CED6AEC927762A8900AAFBE6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE4C9E8A27832B4D003F7450 /* acc_TWF.csv */,
+				CE4C9E8C27832B4D003F7450 /* vel_fft_rms.csv */,
+				CE4C9E8B27832B4D003F7450 /* acc_fft_rms.csv */,
+				CED6AECB27762AC200AAFBE6 /* Images */,
+				CED6AECA27762ABA00AAFBE6 /* Audio */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CED6AECA27762ABA00AAFBE6 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				CED6AED827762AD500AAFBE6 /* button_press.caf */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		CED6AECB27762AC200AAFBE6 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				CED6AED027762ACE00AAFBE6 /* fft_off.png */,
+				CED6AECE27762ACE00AAFBE6 /* fft_on.png */,
+				CED6AECF27762ACE00AAFBE6 /* mute_off.png */,
+				CED6AECD27762ACE00AAFBE6 /* mute_on.png */,
+				CED6AED127762ACE00AAFBE6 /* oscilloscope2.png */,
+				CED6AECC27762ACE00AAFBE6 /* sonogram.png */,
+				CED6AEDC277634C500AAFBE6 /* oscilloscope3.png */,
+				CED6AEDD277634C500AAFBE6 /* oscilloscope.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CED6AE672775F78300AAFBE6 /* VibSim */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CED6AE952775F78500AAFBE6 /* Build configuration list for PBXNativeTarget "VibSim" */;
+			buildPhases = (
+				CED6AE642775F78300AAFBE6 /* Sources */,
+				CED6AE652775F78300AAFBE6 /* Frameworks */,
+				CED6AE662775F78300AAFBE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VibSim;
+			productName = VibSim;
+			productReference = CED6AE682775F78300AAFBE6 /* VibSim.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CED6AE802775F78500AAFBE6 /* VibSimTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CED6AE982775F78500AAFBE6 /* Build configuration list for PBXNativeTarget "VibSimTests" */;
+			buildPhases = (
+				CED6AE7D2775F78500AAFBE6 /* Sources */,
+				CED6AE7E2775F78500AAFBE6 /* Frameworks */,
+				CED6AE7F2775F78500AAFBE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CED6AE832775F78500AAFBE6 /* PBXTargetDependency */,
+			);
+			name = VibSimTests;
+			productName = VibSimTests;
+			productReference = CED6AE812775F78500AAFBE6 /* VibSimTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CED6AE8A2775F78500AAFBE6 /* VibSimUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CED6AE9B2775F78500AAFBE6 /* Build configuration list for PBXNativeTarget "VibSimUITests" */;
+			buildPhases = (
+				CED6AE872775F78500AAFBE6 /* Sources */,
+				CED6AE882775F78500AAFBE6 /* Frameworks */,
+				CED6AE892775F78500AAFBE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CED6AE8D2775F78500AAFBE6 /* PBXTargetDependency */,
+			);
+			name = VibSimUITests;
+			productName = VibSimUITests;
+			productReference = CED6AE8B2775F78500AAFBE6 /* VibSimUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CED6AE602775F78300AAFBE6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					CED6AE672775F78300AAFBE6 = {
+						CreatedOnToolsVersion = 13.1;
+						LastSwiftMigration = 1310;
+					};
+					CED6AE802775F78500AAFBE6 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = CED6AE672775F78300AAFBE6;
+					};
+					CED6AE8A2775F78500AAFBE6 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = CED6AE672775F78300AAFBE6;
+					};
+				};
+			};
+			buildConfigurationList = CED6AE632775F78300AAFBE6 /* Build configuration list for PBXProject "VibSim" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CED6AE5F2775F78300AAFBE6;
+			productRefGroup = CED6AE692775F78300AAFBE6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CED6AE672775F78300AAFBE6 /* VibSim */,
+				CED6AE802775F78500AAFBE6 /* VibSimTests */,
+				CED6AE8A2775F78500AAFBE6 /* VibSimUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CED6AE662775F78300AAFBE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED6AED627762ACE00AAFBE6 /* fft_off.png in Resources */,
+				CED6AEDE277634C500AAFBE6 /* oscilloscope3.png in Resources */,
+				CED6AE7B2775F78400AAFBE6 /* LaunchScreen.storyboard in Resources */,
+				CED6AEDF277634C500AAFBE6 /* oscilloscope.png in Resources */,
+				CED6AED727762ACE00AAFBE6 /* oscilloscope2.png in Resources */,
+				CED6AED227762ACE00AAFBE6 /* sonogram.png in Resources */,
+				CE4C9E8E27832B4E003F7450 /* acc_fft_rms.csv in Resources */,
+				CED6AE782775F78400AAFBE6 /* Assets.xcassets in Resources */,
+				CED6AED527762ACE00AAFBE6 /* mute_off.png in Resources */,
+				CED6AED427762ACE00AAFBE6 /* fft_on.png in Resources */,
+				CE4C9E8D27832B4E003F7450 /* acc_TWF.csv in Resources */,
+				CED6AED327762ACE00AAFBE6 /* mute_on.png in Resources */,
+				CED6AED927762B3300AAFBE6 /* button_press.caf in Resources */,
+				CED6AE732775F78300AAFBE6 /* Main.storyboard in Resources */,
+				CE4C9E8F27832B4E003F7450 /* vel_fft_rms.csv in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CED6AE7F2775F78500AAFBE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CED6AE892775F78500AAFBE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CED6AE642775F78300AAFBE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED6AEC2277606B900AAFBE6 /* DCRejectionFilter.swift in Sources */,
+				CED6AE702775F78300AAFBE6 /* VSMainViewController.swift in Sources */,
+				CED6AEBA2776068000AAFBE6 /* CAXException.swift in Sources */,
+				CED6AEBC2776068000AAFBE6 /* CAStreamBasicDescription.swift in Sources */,
+				CEBA482227841B0000F72366 /* FFTTool.swift in Sources */,
+				CED6AEB12776049100AAFBE6 /* BufferManager.swift in Sources */,
+				CED6AE762775F78300AAFBE6 /* VibSim.xcdatamodeld in Sources */,
+				CED6AE6C2775F78300AAFBE6 /* AppDelegate.swift in Sources */,
+				CED6AEC02776068700AAFBE6 /* NumTypes+Conversion.swift in Sources */,
+				CED6AEBF2776068700AAFBE6 /* OOPExceptions.swift in Sources */,
+				CED6AEAF2775FA8E00AAFBE6 /* VSAudioController.swift in Sources */,
+				CED6AEC8277608C300AAFBE6 /* VSMeasurementController.swift in Sources */,
+				CED6AE6E2775F78300AAFBE6 /* SceneDelegate.swift in Sources */,
+				CED6AEBB2776068000AAFBE6 /* CABitOperations.swift in Sources */,
+				CED6AEB92776068000AAFBE6 /* CADebugMacros.swift in Sources */,
+				CED6AEB32776058B00AAFBE6 /* FFTHelper.swift in Sources */,
+				CEBA482027840CF800F72366 /* VSFFT.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CED6AE7D2775F78500AAFBE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED6AE862775F78500AAFBE6 /* VibSimTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CED6AE872775F78500AAFBE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED6AE922775F78500AAFBE6 /* VibSimUITestsLaunchTests.swift in Sources */,
+				CED6AE902775F78500AAFBE6 /* VibSimUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CED6AE832775F78500AAFBE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CED6AE672775F78300AAFBE6 /* VibSim */;
+			targetProxy = CED6AE822775F78500AAFBE6 /* PBXContainerItemProxy */;
+		};
+		CED6AE8D2775F78500AAFBE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CED6AE672775F78300AAFBE6 /* VibSim */;
+			targetProxy = CED6AE8C2775F78500AAFBE6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CED6AE712775F78300AAFBE6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CED6AE722775F78300AAFBE6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CED6AE792775F78400AAFBE6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CED6AE7A2775F78400AAFBE6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CED6AE932775F78500AAFBE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CED6AE942775F78500AAFBE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CED6AE962775F78500AAFBE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WZSPWAC57U;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VibSim/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kumarsharma.VibSim;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "VibSim/Measurement/Views/VibSim-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		CED6AE972775F78500AAFBE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WZSPWAC57U;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VibSim/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kumarsharma.VibSim;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "VibSim/Measurement/Views/VibSim-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		CED6AE992775F78500AAFBE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WZSPWAC57U;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kumarsharma.VibSimTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VibSim.app/VibSim";
+			};
+			name = Debug;
+		};
+		CED6AE9A2775F78500AAFBE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WZSPWAC57U;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kumarsharma.VibSimTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VibSim.app/VibSim";
+			};
+			name = Release;
+		};
+		CED6AE9C2775F78500AAFBE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WZSPWAC57U;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kumarsharma.VibSimUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VibSim;
+			};
+			name = Debug;
+		};
+		CED6AE9D2775F78500AAFBE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WZSPWAC57U;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kumarsharma.VibSimUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VibSim;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CED6AE632775F78300AAFBE6 /* Build configuration list for PBXProject "VibSim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CED6AE932775F78500AAFBE6 /* Debug */,
+				CED6AE942775F78500AAFBE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CED6AE952775F78500AAFBE6 /* Build configuration list for PBXNativeTarget "VibSim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CED6AE962775F78500AAFBE6 /* Debug */,
+				CED6AE972775F78500AAFBE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CED6AE982775F78500AAFBE6 /* Build configuration list for PBXNativeTarget "VibSimTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CED6AE992775F78500AAFBE6 /* Debug */,
+				CED6AE9A2775F78500AAFBE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CED6AE9B2775F78500AAFBE6 /* Build configuration list for PBXNativeTarget "VibSimUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CED6AE9C2775F78500AAFBE6 /* Debug */,
+				CED6AE9D2775F78500AAFBE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CED6AE742775F78300AAFBE6 /* VibSim.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CED6AE752775F78300AAFBE6 /* VibSim.xcdatamodel */,
+			);
+			currentVersion = CED6AE752775F78300AAFBE6 /* VibSim.xcdatamodel */;
+			path = VibSim.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CED6AE602775F78300AAFBE6 /* Project object */;
+}
