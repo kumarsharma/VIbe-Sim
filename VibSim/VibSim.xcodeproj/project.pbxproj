@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0DFA422785CD0100DBEE35 /* AEFloatConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0DFA322785CD0000DBEE35 /* AEFloatConverter.m */; };
+		CE0DFA432785CD0100DBEE35 /* VibeOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0DFA352785CD0000DBEE35 /* VibeOutput.m */; };
+		CE0DFA442785CD0100DBEE35 /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = CE0DFA372785CD0000DBEE35 /* TPCircularBuffer.c */; };
+		CE0DFA452785CD0100DBEE35 /* VibeAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0DFA3A2785CD0100DBEE35 /* VibeAudioFile.m */; };
+		CE0DFA462785CD0100DBEE35 /* VibeAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0DFA3C2785CD0100DBEE35 /* VibeAudio.m */; };
+		CE0DFA472785CD0100DBEE35 /* VibeAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0DFA3E2785CD0100DBEE35 /* VibeAudioPlayer.m */; };
+		CE0DFA482785CD0100DBEE35 /* VibedataInput.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0DFA3F2785CD0100DBEE35 /* VibedataInput.m */; };
+		CE0DFA492785CD0100DBEE35 /* VibeRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0DFA402785CD0100DBEE35 /* VibeRecorder.m */; };
 		CEB874672780C1C00050FDC1 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB874662780C1C00050FDC1 /* ImageIO.framework */; };
 		CEB874692780C1CB0050FDC1 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB874682780C1CB0050FDC1 /* libc++.tbd */; };
 		CEB8746B2780C2E00050FDC1 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8746A2780C2E00050FDC1 /* MetalKit.framework */; };
@@ -75,6 +83,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE0DFA322785CD0000DBEE35 /* AEFloatConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEFloatConverter.m; sourceTree = "<group>"; };
+		CE0DFA332785CD0000DBEE35 /* VibeAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VibeAudioPlayer.h; sourceTree = "<group>"; };
+		CE0DFA342785CD0000DBEE35 /* VibedataInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VibedataInput.h; sourceTree = "<group>"; };
+		CE0DFA352785CD0000DBEE35 /* VibeOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VibeOutput.m; sourceTree = "<group>"; };
+		CE0DFA362785CD0000DBEE35 /* VibeRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VibeRecorder.h; sourceTree = "<group>"; };
+		CE0DFA372785CD0000DBEE35 /* TPCircularBuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TPCircularBuffer.c; sourceTree = "<group>"; };
+		CE0DFA382785CD0000DBEE35 /* TPCircularBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCircularBuffer.h; sourceTree = "<group>"; };
+		CE0DFA392785CD0100DBEE35 /* VibeAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VibeAudio.h; sourceTree = "<group>"; };
+		CE0DFA3A2785CD0100DBEE35 /* VibeAudioFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VibeAudioFile.m; sourceTree = "<group>"; };
+		CE0DFA3B2785CD0100DBEE35 /* VibeAudioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VibeAudioFile.h; sourceTree = "<group>"; };
+		CE0DFA3C2785CD0100DBEE35 /* VibeAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VibeAudio.m; sourceTree = "<group>"; };
+		CE0DFA3D2785CD0100DBEE35 /* VibeOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VibeOutput.h; sourceTree = "<group>"; };
+		CE0DFA3E2785CD0100DBEE35 /* VibeAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VibeAudioPlayer.m; sourceTree = "<group>"; };
+		CE0DFA3F2785CD0100DBEE35 /* VibedataInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VibedataInput.m; sourceTree = "<group>"; };
+		CE0DFA402785CD0100DBEE35 /* VibeRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VibeRecorder.m; sourceTree = "<group>"; };
+		CE0DFA412785CD0100DBEE35 /* AEFloatConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEFloatConverter.h; sourceTree = "<group>"; };
 		CEB874662780C1C00050FDC1 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		CEB874682780C1CB0050FDC1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		CEB8746A2780C2E00050FDC1 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
@@ -166,6 +190,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE0DFA312785CCF300DBEE35 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				CE0DFA412785CD0100DBEE35 /* AEFloatConverter.h */,
+				CE0DFA322785CD0000DBEE35 /* AEFloatConverter.m */,
+				CE0DFA372785CD0000DBEE35 /* TPCircularBuffer.c */,
+				CE0DFA382785CD0000DBEE35 /* TPCircularBuffer.h */,
+				CE0DFA392785CD0100DBEE35 /* VibeAudio.h */,
+				CE0DFA3C2785CD0100DBEE35 /* VibeAudio.m */,
+				CE0DFA3B2785CD0100DBEE35 /* VibeAudioFile.h */,
+				CE0DFA3A2785CD0100DBEE35 /* VibeAudioFile.m */,
+				CE0DFA332785CD0000DBEE35 /* VibeAudioPlayer.h */,
+				CE0DFA3E2785CD0100DBEE35 /* VibeAudioPlayer.m */,
+				CE0DFA342785CD0000DBEE35 /* VibedataInput.h */,
+				CE0DFA3F2785CD0100DBEE35 /* VibedataInput.m */,
+				CE0DFA3D2785CD0100DBEE35 /* VibeOutput.h */,
+				CE0DFA352785CD0000DBEE35 /* VibeOutput.m */,
+				CE0DFA362785CD0000DBEE35 /* VibeRecorder.h */,
+				CE0DFA402785CD0100DBEE35 /* VibeRecorder.m */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		CEBA481D27840CD700F72366 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +316,7 @@
 		CED6AEAD2775FA2F00AAFBE6 /* AudioClasses */ = {
 			isa = PBXGroup;
 			children = (
+				CE0DFA312785CCF300DBEE35 /* Support */,
 				CED6AEAE2775FA8E00AAFBE6 /* VSAudioController.swift */,
 				CED6AEB02776049100AAFBE6 /* BufferManager.swift */,
 				CED6AEB22776058B00AAFBE6 /* FFTHelper.swift */,
@@ -491,22 +539,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0DFA462785CD0100DBEE35 /* VibeAudio.m in Sources */,
+				CE0DFA492785CD0100DBEE35 /* VibeRecorder.m in Sources */,
 				CED6AEC2277606B900AAFBE6 /* DCRejectionFilter.swift in Sources */,
 				CEBA48362784CC1C00F72366 /* Complex.swift in Sources */,
 				CED6AE702775F78300AAFBE6 /* VSMainViewController.swift in Sources */,
 				CED6AEBA2776068000AAFBE6 /* CAXException.swift in Sources */,
 				CED6AEBC2776068000AAFBE6 /* CAStreamBasicDescription.swift in Sources */,
 				CEBA482227841B0000F72366 /* FFTTool.swift in Sources */,
+				CE0DFA442785CD0100DBEE35 /* TPCircularBuffer.c in Sources */,
 				CED6AEB12776049100AAFBE6 /* BufferManager.swift in Sources */,
 				CED6AE762775F78300AAFBE6 /* VibSim.xcdatamodeld in Sources */,
 				CED6AE6C2775F78300AAFBE6 /* AppDelegate.swift in Sources */,
+				CE0DFA432785CD0100DBEE35 /* VibeOutput.m in Sources */,
+				CE0DFA472785CD0100DBEE35 /* VibeAudioPlayer.m in Sources */,
 				CEBA48342784B23100F72366 /* SignalProcessing.swift in Sources */,
 				CEBA48392784CC3D00F72366 /* FloatingPointMath.swift in Sources */,
+				CE0DFA422785CD0100DBEE35 /* AEFloatConverter.m in Sources */,
 				CED6AEC02776068700AAFBE6 /* NumTypes+Conversion.swift in Sources */,
 				CEBA483A2784CC3D00F72366 /* GaussianInt.swift in Sources */,
 				CED6AEBF2776068700AAFBE6 /* OOPExceptions.swift in Sources */,
 				CED6AEAF2775FA8E00AAFBE6 /* VSAudioController.swift in Sources */,
+				CE0DFA452785CD0100DBEE35 /* VibeAudioFile.m in Sources */,
 				CED6AEC8277608C300AAFBE6 /* VSMeasurementController.swift in Sources */,
+				CE0DFA482785CD0100DBEE35 /* VibedataInput.m in Sources */,
 				CED6AE6E2775F78300AAFBE6 /* SceneDelegate.swift in Sources */,
 				CED6AEBB2776068000AAFBE6 /* CABitOperations.swift in Sources */,
 				CED6AEB92776068000AAFBE6 /* CADebugMacros.swift in Sources */,

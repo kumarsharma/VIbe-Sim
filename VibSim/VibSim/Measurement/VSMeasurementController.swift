@@ -19,19 +19,33 @@ class VSMeasurementController: UIViewController {
     var TWFChartView: NChartView?
     var FFTChartView: NChartView?
     var audioController: VSAudioController?    
-    var acc_TWF: [Float32]?
-    var acc_fft_rms: [Float32?]?
-    var vel_fft_rms: [Float32?]?
+    var acc_TWF: [Float32?]? = [Float32](repeating: 0, count: 32768)
+    var acc_fft_rms: [Float32?]? = [Float32](repeating: 0, count: 32768)
+    var vel_fft_rms: [Float32?]? = [Float32](repeating: 0, count: 32768)
     var vel_TWF: [Float32?]?
-    
     var fftTool: FFTTool?
     
+    var microphone: VibedataInput?
+    var flagMeasured: Int? = 0
+    var seriesNumber: Int? = 0
+    var tryLoad: Int? = 0
+    var overallCalValue: Double = 0
+    var calibrationFactor: Double = 1
+    var SensorMultiplier: Double = 1
+    var BinMultiplier: Int? = 1
+    var flagChart: Int? = 0
+    var frequencyUnits: Int? = 0
+    var Resolution: Double? = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fftTool = FFTTool()
-        audioController = VSAudioController()
-        audioController?.bufferManagerInstance.bufferDelegate = self
+        externSampleRate = 44100
+        self.microphone = VibedataInput(microphoneDelegate: self, startsImmediately: true)
+        
+//        fftTool = FFTTool()
+//        audioController = VSAudioController()
+//        audioController?.bufferManagerInstance.bufferDelegate = self
         
         self.loadTWFChartView()
         self.loadFFTChartView()
@@ -46,6 +60,22 @@ class VSMeasurementController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         
         audioController!.stopIOUnit()
+    }
+    
+    func measureNext() {
+        
+        seriesNumber = 0
+        
+        if microphone == nil {
+            
+            self.microphone = VibedataInput(microphoneDelegate: self, startsImmediately: true)
+            self.changeAUSRstart()
+        }
+    }
+    
+    @IBAction func changeAUSRstart() {
+        
+        self.microphone?.changeAUSR()
     }
 
     func loadTWFChartView() {
@@ -148,6 +178,70 @@ class VSMeasurementController: UIViewController {
         FFTChartView?.chart.updateSeries()
     }
     
+    @IBAction func plotAction() {
+
+        let flagConnected = VibedataInput.getFlagConnected()
+        /*
+        if (flagConnected == 0) {
+            [labelConnected setTintColor: [UIColor redColor]];
+            labelConnected.enabled = YES;
+            labelConnected.title = @"No Device Connected";
+        }
+        else if (flagConnected == 1) {
+            [labelConnected setTintColor: [UIColor blackColor]];
+            labelConnected.enabled = NO;
+            labelConnected.title = @"Signal from GTI-220";
+        }
+        else if (flagConnected == 2) {
+            [labelConnected setTintColor: [UIColor blackColor]];
+            labelConnected.enabled = NO;
+            labelConnected.title = @"Signal from GTI-120";
+        }
+        else if (flagConnected == 3) {
+            [labelConnected setTintColor: [UIColor blackColor]];
+            labelConnected.enabled = NO;
+            labelConnected.title = @"Signal from GTI-120";
+        }
+        else if (flagConnected == 4) {
+            [labelConnected setTintColor: [UIColor blackColor]];
+            labelConnected.enabled = NO;
+            labelConnected.title = @"Signal from GTI-110";
+        }
+        else if (flagConnected == 10) {
+            [labelConnected setTintColor: [UIColor blackColor]];
+            labelConnected.enabled = NO;
+            labelConnected.title = @"Hardware not Recognized";
+        }*/
+        
+        /*
+        if ((flagConnected != 0)&&(flagConnected != 10)) {
+            m_view.chart.cartesianSystem.xAxis.dataSource = self;
+            m_view.chart.cartesianSystem.yAxis.dataSource = self;
+            flagChart = 1;
+            [m_view.chart updateData];
+            
+            if (flagTWFPlotOption == 1) {
+                m_viewCTWF.chart.cartesianSystem.xAxis.dataSource = self;
+                m_viewCTWF.chart.cartesianSystem.yAxis.dataSource = self;
+    //            flagChart = 3;
+                [m_viewCTWF.chart updateData];
+            }
+            
+            [self processFFT];
+            m_viewFFT.chart.cartesianSystem.xAxis.dataSource = self;
+            m_viewFFT.chart.cartesianSystem.yAxis.dataSource = self;
+            flagChart = 2;
+            [m_viewFFT.chart updateData];
+        }*/
+
+        if flagConnected != 0 && flagConnected != 10 {
+            
+            TWFChartView?.chart.cartesianSystem.xAxis.dataSource = self
+            TWFChartView?.chart.cartesianSystem.yAxis.dataSource = self
+            
+        }
+    }
+    
     @objc func collectDataSignals_() {
     
     }
@@ -234,7 +328,7 @@ extension VSMeasurementController: NChartSeriesDataSource {
         if series.tag == 100 {
             
             for i in 0..<acc_TWF!.count {
-                result.append(NChartPoint(state: NChartPointState(alignedToXWithX: i, y: Double(acc_TWF![i])),
+                result.append(NChartPoint(state: NChartPointState(alignedToXWithX: i, y: Double(acc_TWF![i]!)),
                     for: series))
             }
         } else if series.tag == 200 {
@@ -254,10 +348,124 @@ extension VSMeasurementController: NChartSeriesDataSource {
     }
 }
 
+extension VSMeasurementController: NChartValueAxisDataSource {
+    
+    func valueAxisDataSourceTicks(for axis: NChartValueAxis!) -> [Any]! {
+        
+        let numSamples = 4096
+        switch axis.kind {
+        
+        case .X:
+            if flagChart == 1 {
+                
+                var result: [NSString]? = []
+                for i in 0..<numSamples {
+                    
+                    let val = NSString(format: "%2.2f", Double(i)/externSampleRate!)
+                    result?.append(val)
+                    return result
+                }
+                
+            }
+        default:
+            return nil
+        }
+        
+        return nil
+    }
+    
+    /*
+    func valueAxisDataSourceDouble(_ value: Double, toStringFor axis: NChartValueAxis!) -> String! {
+        
+        var result: String?
+        
+        switch axis.kind {
+        case .X:
+            
+            if flagChart == 1 {
+                
+                let step = 1/externSampleRate!
+                result = String(format: "%2.2f", step * value)
+            }
+            else if flagChart == 2 {
+                
+                switch frequencyUnits {
+                case 0:
+                    result = String(format: "%2.2f", step * value)
+                default:
+                    <#code#>
+                }
+                
+            }
+            
+        default:
+            result = nil
+        }
+        
+        return result
+    }
+    */
+
+}
+
 extension VSMeasurementController: BufferDelegate {
     
     func didReceiveDataSignal(buffer: UnsafeMutablePointer<UnsafeMutablePointer<Float32>?>) {
         
         self.collectDataSignals(buffer: buffer)
+    }
+}
+
+extension VSMeasurementController: VibedataInputDelegate {
+    
+    func microphone(_ microphone: VibedataInput!, hasAudioReceived buffer: UnsafeMutablePointer<UnsafeMutablePointer<Float>?>!, withBufferSize bufferSize: UInt32, withNumberOfChannels numberOfChannels: UInt32) {
+        
+        let bufferSep = 4096
+        let BinMultiplier1 = 1
+        
+        if flagMeasured == 0 {
+            
+            tryLoad! += 1
+            
+            if tryLoad == 1 {
+                
+                for i in 0..<bufferSep {
+                    
+                    acc_TWF![i] = buffer[0]![i] * Float(calibrationFactor) * Float(SensorMultiplier)
+                    acc_fft_rms![i] = buffer[1]![i] * Float(calibrationFactor) * Float(SensorMultiplier)
+                }
+            }
+            
+            for j in 2..<64 {
+                
+                if tryLoad == j {
+                    
+                    for i in Int(bufferSize) * (tryLoad! - 1)..<(bufferSep * tryLoad!) {
+                        
+                        acc_TWF![i] = buffer[0]![i-bufferSep*(tryLoad!-1)] * Float(calibrationFactor) * Float(SensorMultiplier)
+                        acc_fft_rms![i] = buffer[1]![i-bufferSep*(tryLoad!-1)] * Float(calibrationFactor) * Float(SensorMultiplier)
+                    }
+                }
+            }
+        }
+        
+        if tryLoad == BinMultiplier {
+            
+            tryLoad = 0
+            
+            DispatchQueue.main.async { [self] in
+                
+                if flagMeasured == 0 {
+                    
+                    flagMeasured = 1
+                    
+                    if microphone != nil {
+                        
+                        self.microphone!.stopFetchingAudio()
+                        self.microphone = nil
+                    }
+                }
+            }
+        }
     }
 }
