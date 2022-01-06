@@ -11,10 +11,9 @@ import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        setupInitials()
         return true
     }
 
@@ -77,5 +76,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    func setupInitials() {
+        
+        let attributes = [NSAttributedString.Key.font: UIFont(name: "Helvetica Neue", size: 23)!]
+        UINavigationBar.appearance().titleTextAttributes = attributes
+        UIBarButtonItem.appearance().setTitleTextAttributes(attributes, for: .normal)
+    }
 }
 

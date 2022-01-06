@@ -15,6 +15,7 @@
 		CE0DFA472785CD0100DBEE35 /* VibeAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0DFA3E2785CD0100DBEE35 /* VibeAudioPlayer.m */; };
 		CE0DFA482785CD0100DBEE35 /* VibedataInput.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0DFA3F2785CD0100DBEE35 /* VibedataInput.m */; };
 		CE0DFA492785CD0100DBEE35 /* VibeRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0DFA402785CD0100DBEE35 /* VibeRecorder.m */; };
+		CE375C8927871D71002BEE76 /* VSFFTGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = CE375C8827871D71002BEE76 /* VSFFTGenerator.m */; };
 		CEB874672780C1C00050FDC1 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB874662780C1C00050FDC1 /* ImageIO.framework */; };
 		CEB874692780C1CB0050FDC1 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB874682780C1CB0050FDC1 /* libc++.tbd */; };
 		CEB8746B2780C2E00050FDC1 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8746A2780C2E00050FDC1 /* MetalKit.framework */; };
@@ -63,6 +64,7 @@
 		CED6AED927762B3300AAFBE6 /* button_press.caf in Resources */ = {isa = PBXBuildFile; fileRef = CED6AED827762AD500AAFBE6 /* button_press.caf */; };
 		CED6AEDE277634C500AAFBE6 /* oscilloscope3.png in Resources */ = {isa = PBXBuildFile; fileRef = CED6AEDC277634C500AAFBE6 /* oscilloscope3.png */; };
 		CED6AEDF277634C500AAFBE6 /* oscilloscope.png in Resources */ = {isa = PBXBuildFile; fileRef = CED6AEDD277634C500AAFBE6 /* oscilloscope.png */; };
+		CEE315612787094700DAAFA3 /* VibePro.png in Resources */ = {isa = PBXBuildFile; fileRef = CEE315602787094700DAAFA3 /* VibePro.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,8 @@
 		CE0DFA3F2785CD0100DBEE35 /* VibedataInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VibedataInput.m; sourceTree = "<group>"; };
 		CE0DFA402785CD0100DBEE35 /* VibeRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VibeRecorder.m; sourceTree = "<group>"; };
 		CE0DFA412785CD0100DBEE35 /* AEFloatConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEFloatConverter.h; sourceTree = "<group>"; };
+		CE375C8727871D71002BEE76 /* VSFFTGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VSFFTGenerator.h; sourceTree = "<group>"; };
+		CE375C8827871D71002BEE76 /* VSFFTGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VSFFTGenerator.m; sourceTree = "<group>"; };
 		CEB874662780C1C00050FDC1 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		CEB874682780C1CB0050FDC1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		CEB8746A2780C2E00050FDC1 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
@@ -154,6 +158,7 @@
 		CED6AEDC277634C500AAFBE6 /* oscilloscope3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oscilloscope3.png; sourceTree = "<group>"; };
 		CED6AEDD277634C500AAFBE6 /* oscilloscope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oscilloscope.png; sourceTree = "<group>"; };
 		CED6AEE02776374000AAFBE6 /* VibSim-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VibSim-Bridging-Header.h"; sourceTree = "<group>"; };
+		CEE315602787094700DAAFA3 /* VibePro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VibePro.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +214,8 @@
 				CE0DFA352785CD0000DBEE35 /* VibeOutput.m */,
 				CE0DFA362785CD0000DBEE35 /* VibeRecorder.h */,
 				CE0DFA402785CD0100DBEE35 /* VibeRecorder.m */,
+				CE375C8727871D71002BEE76 /* VSFFTGenerator.h */,
+				CE375C8827871D71002BEE76 /* VSFFTGenerator.m */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -391,6 +398,7 @@
 				CED6AECC27762ACE00AAFBE6 /* sonogram.png */,
 				CED6AEDC277634C500AAFBE6 /* oscilloscope3.png */,
 				CED6AEDD277634C500AAFBE6 /* oscilloscope.png */,
+				CEE315602787094700DAAFA3 /* VibePro.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -505,6 +513,7 @@
 				CED6AE7B2775F78400AAFBE6 /* LaunchScreen.storyboard in Resources */,
 				CED6AEDF277634C500AAFBE6 /* oscilloscope.png in Resources */,
 				CED6AED727762ACE00AAFBE6 /* oscilloscope2.png in Resources */,
+				CEE315612787094700DAAFA3 /* VibePro.png in Resources */,
 				CED6AED227762ACE00AAFBE6 /* sonogram.png in Resources */,
 				CED6AE782775F78400AAFBE6 /* Assets.xcassets in Resources */,
 				CED6AED527762ACE00AAFBE6 /* mute_off.png in Resources */,
@@ -556,6 +565,7 @@
 				CEBA48342784B23100F72366 /* SignalProcessing.swift in Sources */,
 				CEBA48392784CC3D00F72366 /* FloatingPointMath.swift in Sources */,
 				CE0DFA422785CD0100DBEE35 /* AEFloatConverter.m in Sources */,
+				CE375C8927871D71002BEE76 /* VSFFTGenerator.m in Sources */,
 				CED6AEC02776068700AAFBE6 /* NumTypes+Conversion.swift in Sources */,
 				CEBA483A2784CC3D00F72366 /* GaussianInt.swift in Sources */,
 				CED6AEBF2776068700AAFBE6 /* OOPExceptions.swift in Sources */,

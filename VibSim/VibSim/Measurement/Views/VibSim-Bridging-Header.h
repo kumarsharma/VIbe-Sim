@@ -12,3 +12,4 @@
 #import "VibeRecorder.h"
 //#import "VSMainViewController-Swift.h"
 //#import "VibSim-Swift.h"
+#import "VSFFTGenerator.h"
